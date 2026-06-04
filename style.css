@@ -285,52 +285,6 @@ button:hover{
   transform:translateY(-3px);
 }
 
-/* ===================== TABLET ===================== */
-@media (max-width: 1024px) {
-
-  /* HERO */
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    gap: 60px;
-  }
-
-  .hero-left {
-    width: 100%;
-  }
-
-  .hero-right {
-    width: 100%;
-    height: auto;
-  }
-
-  .hero-left h1 {
-    font-size: 60px;
-  }
-
-  /* ABOUT */
-  .about-container {
-    flex-direction: column;
-    gap: 50px;
-  }
-
-  /* PROJECTS */
-  .projects h2 {
-    margin-left: 0;
-    text-align: center;
-    font-size: 50px;
-  }
-
-  .project-card {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .project-text,
-  .project-image {
-    width: 100%;
-  }
-}
 
 /* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
