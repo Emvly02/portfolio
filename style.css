@@ -418,3 +418,23 @@ button:hover{
     font-size: 12px;
   }
 }
+
+.project-scroll{
+  cursor: grab;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.project-scroll:active{
+  cursor: grabbing;
+}
+
+.project-card{
+  user-select: none;
+}
+
+.project-image img,
+.project-image video{
+  -webkit-user-drag: none;
+  user-select: none;
+}
