@@ -1,26 +1,32 @@
-const modal = document.getElementById("videoModal");
-const modalVideo = document.getElementById("modalVideo");
+const slider = document.querySelector(".project-scroll");
 
-const projectVideos = document.querySelectorAll(".project-image video");
+let isDown = false;
+let startX;
+let scrollLeft;
 
-projectVideos.forEach(video => {
-  video.addEventListener("click", () => {
+slider.addEventListener("pointerdown", (e) => {
+  isDown = true;
+  slider.setPointerCapture(e.pointerId);
 
-    modal.classList.add("active");
+  startX = e.clientX;
+  scrollLeft = slider.scrollLeft;
 
-    const source = video.querySelector("source").src;
-    modalVideo.src = source;
-
-    modalVideo.currentTime = 0;
-    modalVideo.play();
-
-  });
+  slider.classList.add("dragging");
 });
 
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.classList.remove("active");
-    modalVideo.pause();
-    modalVideo.src = "";
-  }
+slider.addEventListener("pointermove", (e) => {
+  if (!isDown) return;
+
+  const x = e.clientX;
+  const walk = (x - startX) * 1.5;
+
+  slider.scrollLeft = scrollLeft - walk;
 });
+
+function stopDrag() {
+  isDown = false;
+  slider.classList.remove("dragging");
+}
+
+slider.addEventListener("pointerup", stopDrag);
+slider.addEventListener("pointercancel", stopDrag);
