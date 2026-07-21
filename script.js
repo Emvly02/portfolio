@@ -30,3 +30,9 @@ function stopDrag() {
 
 slider.addEventListener("pointerup", stopDrag);
 slider.addEventListener("pointercancel", stopDrag);
+
+const meinWegBtn = document.getElementById("meinWegBtn");
+
+meinWegBtn.addEventListener("click", () => {
+  window.location.href = "meinWeg.html";
+});
